@@ -4,16 +4,21 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/RomuloDurante/GoSandBox/oopGo/payment/objectoriented"
+	"github.com/RomuloDurante/GoSandBox/oopGo/fullExample/objectoriented"
+	"github.com/RomuloDurante/GoSandBox/oopGo/encapsulation/Interfaces/payment"
 )
 
 func main() {
 	const amount = 500
 
+	//use the interface
+	var option payment.PaymentOption
+
+
 	// use cash payment *********************************************************
 	fmt.Println("Payment with cash")
-	cash := &objectoriented.Cash{}
-	cash.ProcessPayment(amount)
+	option = payment.CreateCash() // example using interface
+	option.ProcessPayment(amount)
 	fmt.Println(strings.Repeat("*", 10) + "\n\n")
 
 	// use credit ****************************************************************
